@@ -1,0 +1,35 @@
+package guru.qa;
+
+import com.codeborne.selenide.CollectionCondition;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.List;
+import java.util.stream.Stream;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.open;
+
+
+public class ParamTestLang {
+
+
+  static Stream<Arguments> selenideButtonsTest() {
+    return Stream.of(
+        Arguments.of(guru.qa.Language.Рус, List.of("О компании", "Региональная сеть", "Онлайн-услуги", "Страховой случай", "Режим работы и контакты", "Обратная связь", "Пресс-центр", "Государственные органы", "Обращения граждан и юридических лиц", "Калькулятор страховых услуг", "Государственная символика", "Актуально в стране")),
+        Arguments.of(guru.qa.Language.Бел, List.of("Пра кампанію", "Рэгіянальная сетка", "Анлайн-паслугі", "Страхавы выпадак", "Рэжым работы i кантакты", "Зваротная сувязь", "Прэс-цэнтр", "Дзяржаўныя органы", "Звароты грамадзян і юрыдычных асоб", "Калькулятар страхавых паслуг", "Дзяржаўная сімволіка", "Актуальна ў краіне"))
+    );
+  }
+
+  @MethodSource
+  @ParameterizedTest
+  void selenideButtonsTest(guru.qa.Language language, List<String> expectedButtons) {
+    open("https://bgs.by/calc/medical/occur/");
+    $$(".lang a").find(text(language.name())).click();
+    $$(".headerMenu a").filter(visible)
+        .shouldHave(CollectionCondition.texts(expectedButtons));
+  }
+}
