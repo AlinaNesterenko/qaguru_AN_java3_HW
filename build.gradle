@@ -13,7 +13,6 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
     testImplementation 'com.codeborne:selenide:6.18.0'
     testImplementation 'org.jetbrains:annotations:24.0.0'
-    testImplementation 'org.jetbrains:annotations:24.0.0'
 }
 
 test {

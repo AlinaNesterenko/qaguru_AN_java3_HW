@@ -1,4 +1,4 @@
-package guru.qa;
+package test;
 
 public enum Language {
   Рус, Бел

@@ -1,8 +1,5 @@
-package guru.qa;
+package test;
 
-    import com.codeborne.selenide.CollectionCondition;
-
-    import org.junit.jupiter.api.BeforeEach;
     import org.junit.jupiter.api.DisplayName;
     import org.junit.jupiter.api.Tag;
     import org.junit.jupiter.params.ParameterizedTest;
@@ -13,22 +10,17 @@ package guru.qa;
     import static com.codeborne.selenide.Selectors.byText;
     import static com.codeborne.selenide.Selenide.$;
     import static com.codeborne.selenide.Selenide.$$;
-    import static com.codeborne.selenide.Selenide.open;
+
+    public class ParamTestCalcFileDataTest extends TestBase  {
 
 
-    public class ParamTestCalcFileData  {
-
-    @BeforeEach
-    void setup() {
-    open("https://bgs.by/calc/medical/occur/");
-    }
 
     @CsvFileSource(resources = "/paramForCalc.csv")
 
     @DisplayName("Стоимость страховки соответствует {plan} плану")
 
     @ParameterizedTest
-    @Tag("BLOCKER")
+    @Tag("Calculations")
     void successfulSearchTest(String sum, String plan, String result){
     $(".formText").click();
     $(".formText").setValue(sum);
