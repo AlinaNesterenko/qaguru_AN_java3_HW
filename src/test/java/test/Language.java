@@ -1,5 +1,15 @@
 package test;
 
 public enum Language {
-  Рус, Бел
+  RUSSIAN("Рус"),
+  BELARUSIAN("Бел");
+  private String name;
+
+  Language(String name) {
+    this.name = name;
+  }
+
+  public String getName() {
+    return name;
+  }
 }

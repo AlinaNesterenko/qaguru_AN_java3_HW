@@ -30,7 +30,5 @@ public class ParamTestCalcTest extends TestBase  {
     $$(".infoblock").findBy(text(result)).shouldBe(visible);
 
   }
-
-
 }
 
