@@ -9,17 +9,17 @@ public interface WebConfigHW extends Config {
 
   @Key("baseUrl")
   @DefaultValue("https://demoqa.com/")
-  String getBaseUrl();
+  String baseUrl();
   @Key("browser")
   @DefaultValue("CHROME")
-  String getBrowser();
+  String browser();
 
   @Key("remoteUrl")
-  String getRemoteUrl();
+  String remoteUrl();
 
   @Key("browserVersion")
   @DefaultValue("110")
-  String getBrowserVersion();
+  String browserVersion();
 
 
 }
